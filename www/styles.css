@@ -30,6 +30,7 @@
   background-color: #34495e !important;
 }
 
+
 /*Styling for the search page*/
 .search-link-title {
   font-size: 18px;
@@ -188,36 +189,29 @@ div .dropdown-style .btn.dropdown-toggle.btn-default{
   height: 50px;
 }
 
-.custom-card{
-  .nav-tabs>li.active>a, 
-  .nav-tabs>li.active>a:hover,
-  .nav-tabs>li.active>a:hover{
+.custom-card>.nav-tabs.card-header-tabs>li.active>a, 
+.custom-card>.nav-tabs.card-header-tabs>li.active>a:hover,
+.custom-card>.nav-tabs.card-header-tabs>li.active>a:hover{
     color: black;
     background-color: white;
     border: orange 1px solid;
     border-bottom: 4px solid gray!important;
     height: 50px;
-  }
 }
 
-.custom-card{
-  .nav-tabs>li>a{
-    height: 50px;
-  }
+.custom-card>.nav-tabs.card-header-tabs>li>a{
+  height: 50px;
 }
 
-.custom-card{
-  .nav-tabs>li>a:hover,
-  .nav-tabs>li>a:focus{
+.custom-card>.nav-tabs.card-header-tabs>li>a:hover,
+.custom-card>.nav-tabs.card-header-tabs>li>a:focus{
   color: black;
   background-color: white;
   border: 1px solid orange;
   border-bottom: 4px solid grey!important;
 }
-}
 
-.custom-card{
-  .nav-tabs>li>a{
+.custom-card>.nav-tabs.card-header-tabs>li>a{
   border-radius: 0px;
   margin-right: 0px;
   border: 1px solid orange;
@@ -226,7 +220,6 @@ div .dropdown-style .btn.dropdown-toggle.btn-default{
   max-width: 50px;
   font-size: 16px;
   background-color: white;
-}
 }
 
 /* Styling for card content */

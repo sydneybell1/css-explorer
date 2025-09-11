@@ -8,6 +8,7 @@
 library(shiny)
 library(reactable)
 library(shinyWidgets)
+library(bslib)
 
 # creating the data for the search table ---------------------------------------
 data <- data.frame(
