@@ -1,0 +1,307 @@
+/*Style for the CSS document for CSS Explorer*/
+
+/* Navigation styling */
+.navbar{
+  background-color: #2c3e50 !important;
+  height:40px;
+}
+.navbar-header{
+  float:left !important;
+}
+.navbar-brand{
+  color:white !important;
+  font-weight: 700;
+  margin-top:-10px;
+  font-size:25px;
+}
+/*Making the navigation tabs right aligned*/
+.navbar-nav {
+  margin-left:auto !important;
+  float:right !important;
+}
+/*Setting the hover and active class individual tabs*/
+.navbar-nav>li>a{
+  color: white !important;
+}
+.navbar-nav>li>a:hover{
+  background-color: #34495e !important;
+}
+.navbar-nav>.active>a{
+  background-color: #34495e !important;
+}
+
+/*Styling for the search page*/
+.search-link-title {
+  font-size: 18px;
+  font-weight: 500 !important;
+  color: #1a0dab;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.search-link-title:hover {
+  text-decoration: underline;
+}
+.search-description {
+  font-size: 14px;
+  color: #4d5156;
+  margin-bottom: 1em;
+}
+.reactable-pagination {
+  margin-top: 20px;
+}
+
+/*Styling for: color of actionButtons*/
+.new-button-style{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 15px;
+}
+.new-button-style:focus,
+.new-button-style:hover,
+.new-button-style:active{
+  background-color: #4A4A4A;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Styling for tab positioning */
+.special-tabs .nav-tabs > li:nth-child(3),
+.special-tabs .nav-tabs > li:nth-child(4) {
+  float: right !important;
+  margin-left:auto !important;
+}
+
+.special-tabs .nav-tabs > li:nth-child(4) > a:hover,
+.special-tabs .nav-tabs > li:nth-child(4) > a:focus {
+  background-image: linear-gradient(to bottom,
+                    transparent 15%,
+                    #000 15%,
+                    #000 85%,
+                    transparent 85%);
+  background-position: 100% 0;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+}
+
+.special-tabs .nav-tabs > li:nth-child(1),
+.special-tabs .nav-tabs > li:nth-child(2) {
+  float: left !important;
+  margin-right:auto !important;
+}
+
+.special-tabs .nav-tabs > li:nth-child(2) > a:hover,
+.special-tabs .nav-tabs > li:nth-child(2) > a:focus {
+  background-image: linear-gradient(to bottom,
+                    transparent 15%,
+                    #000 15%,
+                    #000 85%,
+                    transparent 85%);
+  background-position: 0 100%;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+}
+
+/*Styling transition for cards*/
+.transition-card{
+  padding: 1rem;
+  width: 25rem;
+  height: 20rem;
+  border: 0.1rem solid black;
+  background: white;
+  display: inline-block;
+  -webkit-transition: border-bottom .4s;
+  transition: border-bottom .4s;
+}
+
+.transition-card:hover, .transition-card:focus{
+  border-bottom-color: darkred;
+  border-bottom-style: solid;
+  border-bottom-width: 0.4rem;
+}
+
+/* Dropdown styling */
+div .dropdown-style .bs-caret{
+  font-size: 3rem;
+  color: purple;
+  background: lightgray;
+  padding-right: 10px;
+}
+.dropdown-menu{
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background-color: lightgray;
+}
+
+div .dropdown-style .dropdown-item:hover,
+div .dropdown-style .dropdown-item:focus{
+  background-color: mediumpurple;
+  color: black;
+}
+div .dropdown-style .dropdown-item.active.selected{
+  background-color: purple;
+  color: white;
+}
+
+div .dropdown-style .btn.dropdown-toggle.btn-default{
+  background-color: lightgray;
+}
+
+/*Fonts and spacing*/
+.large-red-text{
+  font-size: 5rem;
+  color: red;
+  padding-left: 2rem;
+}
+
+.small-black-text{
+  font-size: 1rem;
+  color: black;
+  padding-left: 5rem;
+}
+
+/*bslib card styling*/
+.bslib-grid>*{
+  padding-bottom: 10px;
+}
+
+.custom-card{
+  border: gray;
+  box-shadow: 4px 4px 5px gray;
+}
+
+.custom-card .bslib-card .bslib-navs-card-title{
+  font-size: 16px;
+  padding-left: 20px;
+  font-weight: 700;
+  color: black;
+  background-color: orange;
+  border-bottom: 1px solid orange;
+}
+
+.custom-card .bslib-card .bslib-navs-card-title .nav{
+  height: 50px;
+}
+
+.custom-card{
+  .nav-tabs>li.active>a, 
+  .nav-tabs>li.active>a:hover,
+  .nav-tabs>li.active>a:hover{
+    color: black;
+    background-color: white;
+    border: orange 1px solid;
+    border-bottom: 4px solid gray!important;
+    height: 50px;
+  }
+}
+
+.custom-card{
+  .nav-tabs>li>a{
+    height: 50px;
+  }
+}
+
+.custom-card{
+  .nav-tabs>li>a:hover,
+  .nav-tabs>li>a:focus{
+  color: black;
+  background-color: white;
+  border: 1px solid orange;
+  border-bottom: 4px solid grey!important;
+}
+}
+
+.custom-card{
+  .nav-tabs>li>a{
+  border-radius: 0px;
+  margin-right: 0px;
+  border: 1px solid orange;
+  color: black;
+  border-bottom: 4px solid orange;
+  max-width: 50px;
+  font-size: 16px;
+  background-color: white;
+}
+}
+
+/* Styling for card content */
+.bslib-card .html-fill-container>.html-fill-item{
+  padding-top: 10px;
+  padding-left: 5px;
+  background-color: white;
+}
+.bslib-full-screen-enter{
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2.5rem;
+  width: 20px;
+  height: 20px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+  background-color: transparent;
+  box-shadow: none !important;
+  margin: 0.2rem 2rem !important;
+}
+
+.bslib-full-screen-enter svg{
+  color: transparent;
+  background-image: url(grey-expand.png);
+  width: 20px!important;
+  height: 20px !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bslib-full-screen-enter svg:hover {
+  color: transparent;
+  background-image: url(orange-expand.png);
+  width: 20px!important; /* Set icon size */
+  height: 20px!important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bslib-full-screen-enter::after {
+  content: "";
+  color: gray;
+  background-image: url(norange-expand.png);
+  width: 20px; /* Set icon size */
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bslib-full-screen-enter:hover::after, .bslib-full-screen-enter:focus::after{
+  color: orange;
+  content: "";
+  background-image: url(orange-expand.png);
+  width: 20px!important; /* Set icon size */
+  height: 20px!important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/*styling the "Close" text on the bslib full screen card*/
+.bslib-full-screen-exit{
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-right: 10vw;
+  padding-bottom: 10px;
+}
+/*styling the height and width of the expanded card*/
+.bslib-card[data-full-screen = "true"]{
+  max-height: 80vh !important;
+  max-width: 80vw !important;
+  margin-left: 10vw;
+  border: 1px solid black;
+}
+
+.custom-card .bslib-card[data-full-screen = "false"] .html-fill-container>.html-fill-item{
+  height: 300px;
+}
