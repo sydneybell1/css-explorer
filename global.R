@@ -27,7 +27,7 @@ data <- data.frame(
                   "This CSS property uses -webkit-transition to animate changes to the bottom border of an element, creating a smooth visual effect when a user interacts with it (e.g., hover or focus). It enhances user experience by providing a subtle yet noticeable transition.",
                   "This styling modifies a dropdown menu by customizing its background color, hover states, and the Bootstrap caret (.bs-caret) color. It provides a cohesive and visually appealing dropdown experience that aligns with your design theme.",
                   "These CSS classes define custom text styles with specific font sizes, colors, and left padding. .large-red-text creates bold, attention-grabbing red text, while .small-black-text offers a more subtle, spaced-out black text style—ideal for visual hierarchy in layout design.",
-                  "Create a toggle button in Shiny that lets users switch between a data table and a chart seamlessly. This example includes both the Shiny server logic and custom CSS to style the button for an interactive, polished user experience. Useful for dashboards where users need to switch between different data visualizations."),
+                  "Create a toggle button in Shiny that lets users switch between a data table and a chart seamlessly. Useful for dashboards where users need to switch between different data visualizations."),
   # output ID for the example in the modal
   output = c("example_tabs", 
              "example_button", 
