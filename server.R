@@ -153,8 +153,8 @@ server <- function(input, output, session){
 .special-tabs .nav-tabs > li:nth-child(4) > a:focus {
   background-image: linear-gradient(to bottom,
                     transparent 15%,
-                    #ffffff 15%,
-                    #ffffff 85%,
+                    #000 15%,
+                    #000 85%,
                     transparent 85%);
   background-position: 100% 0;
   background-size: 1px 100%;
@@ -171,8 +171,8 @@ server <- function(input, output, session){
 .special-tabs .nav-tabs > li:nth-child(2) > a:focus {
   background-image: linear-gradient(to bottom,
                     transparent 15%,
-                    #ffffff 15%,
-                    #ffffff 85%,
+                    #000 15%,
+                    #000 85%,
                     transparent 85%);
   background-position: 0 100%;
   background-size: 1px 100%;
@@ -204,11 +204,11 @@ server <- function(input, output, session){
   
   output$css_code_example_transition <- renderText({
     "
-/*Styling transition for cards*/
 .transition-card{
+  padding: 1rem;
   width: 25rem;
   height: 20rem;
-  border: 0.0625 solid black;
+  border: 0.1rem solid black;
   background: white;
   display: inline-block;
   -webkit-transition: border-bottom .4s;
@@ -218,7 +218,7 @@ server <- function(input, output, session){
 .transition-card:hover, .transition-card:focus{
   border-bottom-color: darkred;
   border-bottom-style: solid;
-  border-bottom-width: 0.25rem;
+  border-bottom-width: 0.4rem;
 }
     "
   })
@@ -244,7 +244,7 @@ server <- function(input, output, session){
   
   output$css_code_example_dropdown <- renderText({
     "
-    /* Dropdown styling */
+/* Dropdown styling */
 div .dropdown-style .bs-caret{
   font-size: 3rem;
   color: purple;
