@@ -309,189 +309,155 @@ output$example_fonts <- renderUI({
       p(\"Small black text\", class = \"small-black-text\"))"
   })
 
-# Output for customizing bslib cards --------------------------------------
-output$example_cards <- renderUI({
-  layout_column_wrap(
-    column(12, 
-           div(class = "custom-card",
-               navset_card_tab(
-                 full_screen = TRUE,
-                 title = "Example card with tabs",
-                 nav_panel(
-                   icon("chart-column"),
-                   HTML("You can put some code in here to show a chart or anything else")
-                 ),
-                 nav_panel(
-                   icon("table"),
-                   h4("You can put some code in here to show a table or anything else")
-                 )
-               )))
-  )
-})
+# Output for creating a table/chart switch button -------------------------
+  output$example_switch <- renderUI({
+    # Reactive val that checks if chart or table view is clicked
+    chartView_Check <- reactiveVal(TRUE)
+    # Switching between chart and table view (button appearance)
+    switchView <- function(){
+      
+      if(chartView_Check()){
+        chartViewClass <-"viewSwitcher selectedButton"
+        tableViewClass <-"viewSwitcher"
+        chartViewSVG <- "b-chart-white.svg"
+        tableViewSVG <- "table.svg"
+        
+      } else{
+        chartViewClass <-"viewSwitcher"
+        tableViewClass <-"viewSwitcher selectedButton"
+        chartViewSVG <- "b-chart.svg"
+        tableViewSVG <- "table-white.svg"
+      }
+      
+      return(
+        div(
+          tags$button(
+            img(src = chartViewSVG,
+                class = "chartViewSVG"),
+            id="chartView",
+            "Chart",
+            class=chartViewClass,
+            onclick = "Shiny.onInputChange('viewButtonClick', 'chartView')"
+          ),
+          tags$button(
+            img(src = tableViewSVG,
+                class = "chartViewSVG"),
+            id="tableView",
+            "Table",
+            class=tableViewClass,
+            onclick = "Shiny.onInputChange('viewButtonClick', 'tableView')"
+          )
+        )
+      )
+    }
+    
+    observeEvent(input$viewButtonClick,{
+      if(input$viewButtonClick == "tableView"){
+        chartView_Check(FALSE)
+      }else{
+        chartView_Check(TRUE)
+      }
+    })
+    
+    # specific buttons for each key data insights subsection
+    output$chartTableSwitchContainerButtons <- renderUI(
+      switchView()
+    )
+  })
   
-  output$css_code_example_cards <- renderText({
+  output$css_code_example_switch <- renderText({
     "
-/*bslib card styling*/
-.bslib-grid>*{
-  padding-bottom: 10px;
+    /*Styling for the table/chart switching view*/
+.viewSwitcher{
+  margin-left:0px;
+  color: #404245;
+  font-style: normal;
+  font-weight: 500;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #404245;
+  padding:10px;
+  background-color:white;
+  width: 100px;
+  font-size: 14px;
 }
-
-.custom-card{
-  border: gray;
-  box-shadow: 4px 4px 5px gray;
+.chartViewSVG{
+  width:14px;
+  height:14px;
+  margin-right:5px;
 }
-
-.custom-card .bslib-card .bslib-navs-card-title{
-  font-size: 16px;
-  padding-left: 20px;
-  font-weight: 700;
-  color: black;
-  background-color: orange;
-  border-bottom: 1px solid orange;
+#chartView{
+  position: relative;
+  left: 5px;
 }
-
-.custom-card .bslib-card .bslib-navs-card-title .nav{
-  height: 50px;
+.selectedButton{
+  background-color:#404245;
+  color:white;
 }
-
-.custom-card{
-  .nav-tabs>li.active>a, 
-  .nav-tabs>li.active>a:hover,
-  .nav-tabs>li.active>a:hover{
-    color: black;
-    background-color: white;
-    border: orange 1px solid;
-    border-bottom: 4px solid gray!important;
-    height: 50px;
-  }
-}
-
-.custom-card{
-  .nav-tabs>li>a{
-    height: 50px;
-  }
-}
-
-.custom-card{
-  .nav-tabs>li>a:hover,
-  .nav-tabs>li>a:focus{
-  color: black;
-  background-color: white;
-  border: 1px solid orange;
-  border-bottom: 4px solid grey!important;
-}
-}
-
-.custom-card{
-  .nav-tabs>li>a{
-  border-radius: 0px;
-  margin-right: 0px;
-  border: 1px solid orange;
-  color: black;
-  border-bottom: 4px solid orange;
-  max-width: 50px;
-  font-size: 16px;
-  background-color: white;
-}
-}
-
-/* Styling for card content */
-.bslib-card .html-fill-container>.html-fill-item{
-  padding-top: 10px;
-  padding-left: 5px;
-  background-color: white;
-}
-.bslib-full-screen-enter{
-  position: absolute;
-  bottom: 1.5rem;
-  right: 2.5rem;
-  width: 20px;
-  height: 20px;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transition: none !important;
-  background-color: transparent;
-  box-shadow: none !important;
-  margin: 0.2rem 2rem !important;
-}
-
-.bslib-full-screen-enter svg{
-  color: transparent;
-  background-image: url(grey-expand.png);
-  width: 20px!important;
-  height: 20px !important;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.bslib-full-screen-enter svg:hover {
-  color: transparent;
-  background-image: url(orange-expand.png);
-  width: 20px!important; /* Set icon size */
-  height: 20px!important;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.bslib-full-screen-enter::after {
-  content: \"\";
-  color: gray;
-  background-image: url(norange-expand.png);
-  width: 20px; /* Set icon size */
-  height: 20px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.bslib-full-screen-enter:hover::after, .bslib-full-screen-enter:focus::after{
-  color: orange;
-  content: \"\";
-  background-image: url(orange-expand.png);
-  width: 20px!important; /* Set icon size */
-  height: 20px!important;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/*styling the \"Close\" text on the bslib full screen card*/
-.bslib-full-screen-exit{
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-right: 10vw;
-  padding-bottom: 10px;
-}
-/*styling the height and width of the expanded card*/
-.bslib-card[data-full-screen = \"true\"]{
-  max-height: 80vh !important;
-  max-width: 80vw !important;
-  margin-left: 10vw;
-  border: 1px solid black;
-}
-
-.custom-card .bslib-card[data-full-screen = \"false\"] .html-fill-container>.html-fill-item{
-  height: 300px;
+.viewSwitcher-container{
+  display:inline-block;
+  padding-bottom:10px;
+  float:right;
 }
     "
   })
   
-  output$shiny_code_example_cards <- renderText({
+  output$shiny_code_example_switch <- renderText({
     "
-    layout_column_wrap(
-    column(12, 
-           div(class = \"custom-card\",
-               navset_card_tab(
-                 full_screen = TRUE,
-                 title = \"Example card with tabs\",
-                 nav_panel(
-                   icon(\"chart-column\"),
-                   HTML(\"You can put some code in here to show a chart or anything else\")
-                 ),
-                 nav_panel(
-                   icon(\"table\"),
-                   h4(\"You can put some code in here to show a table or anything else\")
-                 )
-               )))
-  )
+    # Reactive val that checks if chart or table view is clicked
+    chartView_Check <- reactiveVal(TRUE)
+    # Switching between chart and table view (button appearance)
+    switchView <- function(){
+      
+      if(chartView_Check()){
+        chartViewClass <-\"viewSwitcher selectedButton\"
+        tableViewClass <-\"viewSwitcher\"
+        chartViewSVG <- \"b-chart-white.svg\"
+        tableViewSVG <- \"table.svg\"
+        
+      } else{
+        chartViewClass <-\"viewSwitcher\"
+        tableViewClass <-\"viewSwitcher selectedButton\"
+        chartViewSVG <- \"b-chart.svg\"
+        tableViewSVG <- \"table-white.svg\"
+      }
+      
+      return(
+        div(
+          tags$button(
+            img(src = chartViewSVG,
+                class = \"chartViewSVG\"),
+            id=\"chartView\",
+            \"Chart\",
+            class=chartViewClass,
+            onclick = \"Shiny.onInputChange('viewButtonClick', 'chartView')\"
+          ),
+          tags$button(
+            img(src = tableViewSVG,
+                class = \"chartViewSVG\"),
+            id=\"tableView\",
+            \"Table\",
+            class=tableViewClass,
+            onclick = \"Shiny.onInputChange('viewButtonClick', 'tableView')\"
+          )
+        )
+      )
+    }
+    
+    observeEvent(input$viewButtonClick,{
+      if(input$viewButtonClick == \"tableView\"){
+        chartView_Check(FALSE)
+      }else{
+        chartView_Check(TRUE)
+      }
+    })
+    
+    # specific buttons for each key data insights subsection
+    output$chartTableSwitchContainerButtons <- renderUI(
+      switchView()
+    )
     "
   })
+  
+  
 }
